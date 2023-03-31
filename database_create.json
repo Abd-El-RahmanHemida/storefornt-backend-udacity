@@ -1,0 +1,10 @@
+{
+    "defaultEnv": "local",
+    "local": {
+      "driver": "pg",
+      "user": "postgres",
+      "password": "123",
+      "host": "localhost",
+      "schema": "public"
+    }
+  }

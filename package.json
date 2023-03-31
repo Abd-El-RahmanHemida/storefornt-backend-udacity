@@ -1,0 +1,44 @@
+{
+  "name": "online-storefront-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "create-db": "db-migrate --config database_create.json db:create storefront",
+    "create-db-test": "db-migrate --config database_create.json db:create storefront_test",
+    "start": "npm run build && node ./dist/server.js",
+    "jasmine": "jasmine",
+    "test": "set ENV=test && npm run build && db-migrate --env test up && npm run jasmine && db-migrate --env test reset",
+    "i-app-databaes":"npm run create-db && npm run create-db-test && db-migrate up"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "jasmine-ts": "^0.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.8.0",
+    "supertest": "^6.3.3",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.15",
+    "@types/jasmine": "^4.3.1",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/node": "^18.11.18",
+    "@types/pg": "^8.6.6",
+    "@types/supertest": "^2.0.12",
+    "prettier": "^2.8.2",
+    "ts-node": "^10.9.1"
+  }
+}
